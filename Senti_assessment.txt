@@ -1,0 +1,43 @@
+//Decimation Filter 
+//M=10
+//Passband: 0 - 2.1kHz, gain 1, 1dB ripple
+//Stopband: 2.2KHz - 22KHz, gain 0, -60dB ripple
+
+#define MAX_LENGTH_SAMPLES 1000
+int freq_sampling = 44100
+int freq_output = 4410
+
+const int window_size=10 ;
+unsigned int Raw_audio[MAX_LENGTH_SAMPLES][2];
+
+unsigned int Bioacoustic_Original[MAX_LENGTH_SAMPLES];
+unsigned int Bioacoustic_DownSampled[MAX_LENGTH_SAMPLES];
+
+//Read Data from memory and store in Raw_audio[][]
+unsigned int *p = 0x40000000;
+for loop
+	Raw_audio[] = *p;
+	p++;
+
+//Inverse Channel 2
+Background_inv[] = Complement (Raw_audio[][1])each value //(To get mirror image w.r.t horizontal axis)
+
+//Add with Channel 1
+Bioacoustic_Original = Background_inv[] + Raw_audio[][0] 
+
+//Pass through Decimation Filter
+for loop 
+	Average every 10 samples (M=10)
+	Assign to Bioacoustic_DownSampled
+	
+//Initialize LTE Modem ()
+Write to required registers
+Send and receive AT commands to
+	scan for available networks
+	connect to selected network	
+
+//Initialize TCP/IP communication
+Create a tap device
+Assign IP Address and Netmask to tap device
+
+//Live stream at reception
